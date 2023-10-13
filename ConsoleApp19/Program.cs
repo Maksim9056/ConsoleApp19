@@ -7,6 +7,7 @@
     using System.Linq;
     using System.Formats.Asn1;
     using ServiceStack.Text;
+    using System.Globalization;
 
     // using ServiceStack.Text;
 
@@ -60,33 +61,22 @@
             }
 
 
-            using (var reader = new StreamReader("superheroes.csv"))
-            using (var csv = new CsvReader(reader))
+            // Формирование CSV-файла
+            using (var writer = new StreamWriter("superHeroes.csv"))
+            using (CsvWriter csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
-                var records = csv.GetRecords<Superhero>().ToList();
+                csv.WriteHeader<SuperHero>();
+                csv.NextRecord();
+                csv.WriteRecord(squad);
 
-                Console.WriteLine("Содержимое файла superheroes.csv:");
-                foreach (var record in records)
+                foreach (SuperHero hero in superHeroes)
                 {
-                    Console.WriteLine($"Имя: {record.Name}, Возраст: {record.Age}, Секретная идентичность: {record.SecretIdentity}");
+                    csv.WriteRecord(hero);
                 }
-            }
-
-
-            using (var reader = new StreamReader("superheroes.csv"))
-            using (var csv = new CsvReader(reader))
-            {
-                var records = csv.GetRecords<Superhero>().ToList();
-
-                Console.WriteLine("Содержимое файла superheroes.csv:");
-                foreach (var record in records)
-                {
-                    Console.WriteLine($"Имя: {record.Name}, Возраст: {record.Age}, Секретная идентичность: {record.SecretIdentity}");
-                }
-                Console.ReadLine();
             }
         }
     }
+    
 
     // Класс для хранения данных о команде супергероев
     class SuperheroSquad
