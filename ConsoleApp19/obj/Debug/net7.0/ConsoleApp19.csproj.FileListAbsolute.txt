@@ -12,3 +12,6 @@ C:\Users\Максим\source\repos\ConsoleApp19\ConsoleApp19\obj\Debug\net7.0\re
 C:\Users\Максим\source\repos\ConsoleApp19\ConsoleApp19\obj\Debug\net7.0\ConsoleApp19.pdb
 C:\Users\Максим\source\repos\ConsoleApp19\ConsoleApp19\obj\Debug\net7.0\ConsoleApp19.genruntimeconfig.cache
 C:\Users\Максим\source\repos\ConsoleApp19\ConsoleApp19\obj\Debug\net7.0\ref\ConsoleApp19.dll
+C:\Users\Максим\source\repos\ConsoleApp19\ConsoleApp19\bin\Debug\net7.0\ServiceStack.Text.dll
+C:\Users\Максим\source\repos\ConsoleApp19\ConsoleApp19\obj\Debug\net7.0\ConsoleApp19.csproj.AssemblyReference.cache
+C:\Users\Максим\source\repos\ConsoleApp19\ConsoleApp19\obj\Debug\net7.0\ConsoleApp19.csproj.CopyComplete

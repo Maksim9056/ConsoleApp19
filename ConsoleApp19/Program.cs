@@ -8,6 +8,7 @@
     using System.Formats.Asn1;
     using ServiceStack.Text;
     using System.Globalization;
+    using System.Text;
 
     // using ServiceStack.Text;
 
@@ -22,6 +23,8 @@
 
     class Program
     {
+        String file = "Output.csv";
+
         static void Main(string[] args)
         {
             string json = File.ReadAllText("SuperHero.json"); // Загружаем JSON-файл
@@ -59,21 +62,18 @@
             {
                 Console.WriteLine($"Имя: {superhero.Name}, Возраст: {superhero.Age}");
             }
+            //StringBuilder output = new StringBuilder();
 
+            string filePath = "your.csv";
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(filePath);
 
-            // Формирование CSV-файла
-            using (var writer = new StreamWriter("superHeroes.csv"))
-            using (CsvWriter csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            foreach (Superhero hero in sortedSuperheroes)
             {
-                csv.WriteHeader<SuperHero>();
-                csv.NextRecord();
-                csv.WriteRecord(squad);
-
-                foreach (SuperHero hero in superHeroes)
-                {
-                    csv.WriteRecord(hero);
-                }
+                writer.WriteLine(String.Format("{0},{1},{2},{3}", hero.Name, hero.Age, hero.SecretIdentity, string.Join(",", hero.Powers)));
             }
+
+            writer.Close();
+            Console.ReadLine();
         }
     }
     
