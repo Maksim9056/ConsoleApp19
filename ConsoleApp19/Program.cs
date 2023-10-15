@@ -9,8 +9,6 @@ namespace ConsoleApp19
         {
             try
             {
-
-
                 string json = File.ReadAllText("SuperHero.json"); // Загружаем JSON-файл
 
                 var options = new JsonSerializerOptions // Опции для десериализации JSON
@@ -38,11 +36,9 @@ namespace ConsoleApp19
                     string powers = string.Join<string>(",", member.Powers);
                     writer.WriteLine($"{member.Name},{member.Age},{member.SecretIdentity},{powers}");
                 }
-
                 writer.Close();
                 Console.WriteLine($"Файл сохранен {filePath}");
                 Console.ReadLine();
-
             }
             catch (Exception ex)
             {
